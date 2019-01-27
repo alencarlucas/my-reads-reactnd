@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 html, body, .root {
   height: 100%;
 }
@@ -190,10 +192,18 @@ button:active {
 .book-cover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   background: #eee;
+  width: 200px;
+  height: 190px;
 }
 
 .book-cover-title {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+.empty-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  color: rgb(128,134,139);
 }
