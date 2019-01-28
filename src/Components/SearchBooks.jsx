@@ -35,6 +35,7 @@ class SearchBooks extends Component {
             <input
               type="text"
               placeholder="Search by title or author"
+              autoFocus
               defaultValue={query}
               onChange={(e) => this.onHandleText(e.target.value)}
             />
