@@ -1,10 +1,9 @@
 import React from 'react';
 
-const EmptyState = ({ title, description }) => {
+const EmptyState = ({ title }) => {
   return (
     <div>
       <h3 className={'empty-title'}>{title}</h3>
-      <p>{description}</p>
     </div>
   )
 };

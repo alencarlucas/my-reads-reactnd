@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader';
 import BookShelf from './BookShelf'
-import EmptyState from './EmptySate'
 
 class ListBooks extends Component {
 
   render() {
-    const { loaded, bookShelves, shelves } = this.props;
+    const { loaded, bookShelves, shelves, onSelectShelf } = this.props;
 
     return (
       <div className="list-books">
@@ -19,9 +18,12 @@ class ListBooks extends Component {
             <div>
               {
                 bookShelves && bookShelves.map(({ shelf, books }) => (
-                  books.length > 0
-                    ? <BookShelf shelf={shelf} books={books} shelves={shelves} key={shelf}/>
-                    : <EmptyState title={'there are no books in that shelf'} key={shelf} />
+                  <BookShelf
+                    shelf={shelf}
+                    books={books}
+                    shelves={shelves}
+                    onSelectShelf={onSelectShelf}
+                    key={shelf} />
                 ))
               }
             </div>

@@ -13,7 +13,15 @@ class SearchBooks extends Component {
   }
 
   render() {
-    const { foundBooks, emptySearchTitle, shelves, searching, onCloseSearch } = this.props
+    const {
+      foundBooks,
+      emptySearchTitle,
+      shelves,
+      searching,
+      query,
+      onSelectShelf,
+      onCloseSearch
+    } = this.props
 
     return (
       <div className="search-books">
@@ -27,6 +35,7 @@ class SearchBooks extends Component {
             <input
               type="text"
               placeholder="Search by title or author"
+              defaultValue={query}
               onChange={(e) => this.onHandleText(e.target.value)}
             />
           </div>
@@ -36,7 +45,13 @@ class SearchBooks extends Component {
             <ol className="books-grid">
               {
                 foundBooks && foundBooks.length
-                  ? foundBooks.map(book => <Book shelves={shelves} {...book} key={book.id} />)
+                  ? foundBooks.map(book => (
+                    <Book
+                      shelves={shelves}
+                      {...book}
+                      onSelectShelf={onSelectShelf}
+                      key={book.id} />
+                    ))
                   : <EmptyState title={emptySearchTitle} />
               }
             </ol>

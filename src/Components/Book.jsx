@@ -3,7 +3,7 @@ import ShelfSelector from './ShelfSelector'
 
 class Book extends Component {
   render() {
-    const { title, authors, imageLinks, shelf, shelves, id } = this.props;
+    const { title, authors, imageLinks, shelf, shelves, id, onSelectShelf} = this.props;
     const backgroundImage = imageLinks && `url(${imageLinks.smallThumbnail})`;
 
     return (
@@ -12,7 +12,12 @@ class Book extends Component {
           <div className="book-top">
             <div className="book-cover" style={{ backgroundImage }}></div>
             <div className="book-shelf-changer">
-              <ShelfSelector selectedShelf={shelf} shelves={shelves} />
+              <ShelfSelector
+                selectedShelf={shelf}
+                shelves={shelves}
+                book={{id}}
+                onSelectShelf={onSelectShelf}
+              />
             </div>
           </div>
           <div className="book-title">{title && title}</div>
