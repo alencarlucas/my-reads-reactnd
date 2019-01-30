@@ -38,6 +38,7 @@ class BooksApp extends React.Component {
   // 'shelf' property isn't present on the return from search method in BooksAPI
   setShelf(foundBooks) {
     const { books } = this.state;
+    if (foundBooks.error) return
     return foundBooks.map(book => {
       let shelvedBook = books.filter(shelvedBook => shelvedBook.id === book.id);
       return shelvedBook.length ? shelvedBook.pop() : { ...book, shelf: 'none' };
@@ -83,7 +84,7 @@ class BooksApp extends React.Component {
       emptySearchTitle: !query ? NO_QUERY_PARAMS_STRING :  ''
     })
     // Call onSearch function when a value is passed to the search input
-    query && await this.onSearch()
+    query ? await this.onSearch() : this.setState({ foundBooks: [] })
   }
 
   async onSelectShelf(book, shelf) {
