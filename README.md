@@ -2,11 +2,6 @@
 
 MyReads project is a bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read. 
 
-## Prerequisites
-
-1.  Node
-2.  NPM
-
 ## Quick start
 
 1. Clone it: `https://github.com/alencarlucas/my-reads-reactnd.git`
